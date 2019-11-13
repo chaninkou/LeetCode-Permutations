@@ -19,7 +19,7 @@ public class FindAllPermutationFunction {
             finalList.add(new ArrayList<>(tempList));
         } else {
             for(int i = 0; i < nums.length; i++){
-                // If element already in the templist, just skip to the next element
+                // If element already in the templist, just skip to the next element 
                 if(tempList.contains(nums[i])){
                     continue;
                 }
