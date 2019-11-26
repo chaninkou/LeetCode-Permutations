@@ -4,19 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllPermutationFunction {
-	// Need to review this
     public List<List<Integer>> permute(int[] nums) {
+    	// This is to store answer result
         List<List<Integer>> finalList = new ArrayList<>();
         
+        // God practice to call a method to do the recursive
         backtrack(finalList, new ArrayList<>(), nums);
         
         return finalList;
     }
     
+    // Base case, if the tempList is the same size of nums
+    // Othere wise, skip if templist already contains that element, then add and remove
     public void backtrack(List<List<Integer>> finalList, List<Integer> tempList, int[] nums){
         // Add the temp list to the final list whenever it gets to the same size as given array
         if(tempList.size() == nums.length){
-        	// Add a new arraylist to he solution finalList
+        	// Add a new arraylist to the solution finalList, not just the tempList
             finalList.add(new ArrayList<>(tempList));
         } else {
             for(int i = 0; i < nums.length; i++){
