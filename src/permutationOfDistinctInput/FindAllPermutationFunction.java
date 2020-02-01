@@ -19,7 +19,7 @@ public class FindAllPermutationFunction {
     public void backtrack(List<List<Integer>> finalList, List<Integer> tempList, int[] nums){
         // Add the temp list to the final list whenever it gets to the same size as given array
         if(tempList.size() == nums.length){
-        	// Add a new arraylist to the solution finalList, not just the tempList
+        	// Make sure to add a new arraylist to the solution finalList, not just the tempList
             finalList.add(new ArrayList<>(tempList));
         } else {
             for(int i = 0; i < nums.length; i++){
@@ -34,6 +34,7 @@ public class FindAllPermutationFunction {
                 // Backtracking
                 backtrack(finalList, tempList, nums);
                 
+                // Mostly, when backtracking, we want to remove the last element after the base case is done
                 // When it reach to the base case (which is the if statement), then remove the last element of the tempList, since the size is already max
                 tempList.remove(tempList.size() - 1);
             }
