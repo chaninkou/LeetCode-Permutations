@@ -3,6 +3,7 @@ package permutationOfDistinctInput;
 import java.util.ArrayList;
 import java.util.List;
 
+// The input nums for this problem will be distinct integers, the program will not work if there is duplicates in input
 public class FindAllPermutationFunction {
     public List<List<Integer>> permute(int[] nums) {
     	// This is to store answer result
