@@ -1,6 +1,7 @@
 package permutationOfDistinctInput;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // The input nums for this problem will be distinct integers, the program will not work if there is duplicates in input
@@ -25,6 +26,7 @@ public class FindAllPermutationFunction {
         } else {
             for(int i = 0; i < nums.length; i++){
                 // If element already in the templist, just skip to the next element by using continue
+            	// This is how we track if we already finish an element, this works cause the input does not have duplicates
                 if(tempList.contains(nums[i])){
                     continue;
                 }
@@ -41,4 +43,54 @@ public class FindAllPermutationFunction {
             }
         }
     }
+    
+    // Faster way
+    public List<List<Integer>> permute2(int[] nums){
+    	List<List<Integer>> result = new ArrayList<>();
+    	
+    	addWhenNeeded(result, 0, nums);
+    	
+    	return result;		
+    }
+    
+    private void addWhenNeeded(List<List<Integer>> result, int finalIndex, int[] nums){
+    	// finalIndex will tell us if we completed the swap and ready to add into result
+    	if(finalIndex == nums.length){
+    		result.add(convertArrayToList(nums));
+    	} else {
+    		for(int currentIndex = finalIndex; currentIndex < nums.length; currentIndex++){
+    			// First iteration will not swap, when currentIndex increase, it will swap
+    			swap(nums, currentIndex, finalIndex);
+    			
+    			addWhenNeeded(result, finalIndex + 1, nums);
+    			
+    			// Swap it back to original
+    			swap(nums, currentIndex, finalIndex);
+    		}
+    	}
+    	
+    }
+    
+    // convert array to list
+    private List<Integer> convertArrayToList (int[] nums){
+    	List<Integer> list = new ArrayList<>(nums.length);
+    	
+    	for(int i : nums){
+    		list.add(i);
+    	}
+    	
+    	return list;
+    }
+    
+    // Swapping elements
+    private void swap (int[] nums, int i, int j){
+    	int temp = nums[i];
+    	
+    	nums[i] = nums[j];
+    	
+    	nums[j] = temp;
+    }
+    
+    
+    
 }

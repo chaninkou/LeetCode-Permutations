@@ -11,6 +11,6 @@ public class Main {
 		
 		FindAllPermutationFunction solution = new FindAllPermutationFunction();
 		
-		System.out.println("Solution: " + solution.permute(nums));
+		System.out.println("Solution: " + solution.permute2(nums));
 	}
 }
