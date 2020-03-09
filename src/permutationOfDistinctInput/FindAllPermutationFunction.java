@@ -53,6 +53,7 @@ public class FindAllPermutationFunction {
     	return result;		
     }
     
+    // Or use a index to keep track
     private void addWhenNeeded(List<List<Integer>> result, int finalIndex, int[] nums){
     	// finalIndex will tell us if we completed the swap and ready to add into result
     	if(finalIndex == nums.length){
