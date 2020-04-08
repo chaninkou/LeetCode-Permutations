@@ -7,10 +7,8 @@ import java.util.List;
 // The input nums for this problem will be distinct integers, the program will not work if there is duplicates in input
 public class FindAllPermutationFunction {
     public List<List<Integer>> permute(int[] nums) {
-    	// This is to store answer result
         List<List<Integer>> finalList = new ArrayList<>();
         
-        // God practice to call a method to do the recursive
         backtrack(finalList, new ArrayList<>(), nums);
         
         return finalList;
@@ -25,8 +23,7 @@ public class FindAllPermutationFunction {
             finalList.add(new ArrayList<>(tempList));
         } else {
             for(int i = 0; i < nums.length; i++){
-                // If element already in the templist, just skip to the next element by using continue
-            	// This is how we track if we already finish an element, this works cause the input does not have duplicates
+            	// Using contains to track if we already finish an element, this works cause the input does not have duplicates
                 if(tempList.contains(nums[i])){
                     continue;
                 }
@@ -53,7 +50,7 @@ public class FindAllPermutationFunction {
     	return result;		
     }
     
-    // Or use a index to keep track
+    // Or use a index to keep track instead of temp list
     private void addWhenNeeded(List<List<Integer>> result, int finalIndex, int[] nums){
     	// finalIndex will tell us if we completed the swap and ready to add into result
     	if(finalIndex == nums.length){
