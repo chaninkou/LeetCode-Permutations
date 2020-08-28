@@ -1,4 +1,4 @@
-package permutationOfDistinctInput;
+package leetcode46;
 
 import java.util.ArrayList;
 import java.util.Arrays;
