@@ -41,7 +41,7 @@ public class FindAllPermutationFunction {
         }
     }
     
-    // Faster methods
+    // Faster methods to do backtracking
     public List<List<Integer>> permute2(int[] nums){
     	List<List<Integer>> result = new ArrayList<>();
     	
